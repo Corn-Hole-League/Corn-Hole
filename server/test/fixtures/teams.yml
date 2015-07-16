@@ -1,0 +1,6 @@
+one:
+  name: "Test Team"
+  logo: "some cool logo"
+  ranking: 25
+  location: "here, there, everywhere"
+  league_id: 1
