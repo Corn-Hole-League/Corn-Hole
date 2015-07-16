@@ -1,0 +1,23 @@
+{
+  "name": "Corn-Hole-League",
+  "version": "0.0.0",
+  "authors": [
+    "Trevor Glass <glasser1988@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "~1.4.3",
+    "angular": "~1.4.3",
+    "fontawesome": "~4.3.0",
+    "bootstrap": "~3.3.5",
+    "moment": "~2.10.3",
+    "underscore": "~1.8.3"
+  }
+}
