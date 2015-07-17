@@ -1,15 +1,20 @@
-(function() {
+(function () {
   'use strict';
   angular
     .module('team', [
-      'ngRoute'
+      'ngRoute',
     ])
-    .config(function($routeProvider){
+    .config(function ($routeProvider){
       $routeProvider
-        .when('/teams', {
-          templateUrl: 'team/views/list.html',
-          controller: 'controllers'
-        })
-    })
+      .when('/team', {
+        templateUrl: 'team/views/list.html',
+        controller: 'TeamsController',
+        controllerAs: 'TeamsCtrl'
+      })
+      .when('/team/:teamId', {
+         templateUrl: 'team/views/detail.html',
+         controller: 'TeamsController'
+       })
 
+    });
 })();
