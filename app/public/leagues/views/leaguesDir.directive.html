@@ -1,0 +1,17 @@
+<article data-id="{{l._id}}">
+<div class="leaguesList">
+<div class="container">
+<div class="row">
+<div class="col-xs-4">
+<img class="leagueLogo" ng-src="{{l.logo}}" alt="" />
+</div>
+<div class="col-xs-8 leagueListDetails">
+<h2 class="leagueTitle"> {{l.name}}</h2>
+<a href="#/leagues/{{l._id}}">Detail</a>
+<div class="leagueCreate">{{l.created_at}}</div>
+</div>
+<div ng-click="action()"><i class="fa fa-times delete"></i></div>
+</div>
+</div>
+</div>
+</article>
