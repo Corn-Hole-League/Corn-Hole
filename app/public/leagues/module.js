@@ -7,13 +7,14 @@
     .config(function ($routeProvider){
       $routeProvider
       .when('/leagues', {
-        templateUrl: 'app/public/leagues/views/list.html',
+        templateUrl: '/app/public/leagues/views/list.html',
         controller: 'LeaguesController',
         controllerAs: 'LeaguesCtrl'
       })
       .when('/leagues/:leagueId', {
-         templateUrl: 'app/public/leagues/views/detail.html',
-         controller: 'LeaguesController'
+         templateUrl: '/app/public/leagues/views/detail.html',
+         controller: 'LeaguesController',
+         controllerAs: 'LeaguesCtrl'
        })
 
     });
