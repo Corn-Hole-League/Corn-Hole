@@ -1,7 +1,6 @@
 <div class="leaguesHeader">
 <form class="search">
-    <input class="leagueIn" type="text" ng-model="search.title" value="" placeholder="Search Title">
-    <input class="leagueIn" type="text" ng-model="search.location" value="" placeholder="Search Location">
+    <input class="leagueIn" type="text" ng-model="search.name" value="" placeholder="Search Title">
 </form>
 </div>
 
@@ -13,9 +12,7 @@
 	<div collapse="!isCollapsed">
 		<div class="well well-lg">
       <form name="leaguesForm">
-      <input type="text" name="title" value="" ng-model="newLeague.title" placeholder="League Name" required/>
-      <input type="text" name="location" value="" ng-model="newLeague.location" placeholder="Location" required/>
-      <input type="text" name="logo" value="" ng-model="newLeague.logo" placeholder="League Logo" required/>
+      <input type="text" name="name" value="" ng-model="newLeague.name" placeholder="League Name" required/>
       <button class="btn btn-warning" type="button" name="leaguesForm" ng-click="createLeague(newLeague)">Create League</button>
       </form>
 		</div>
