@@ -9,7 +9,8 @@
             transclude: true,
             scope: {
               l: '=',
-              action: '&'
+              action: '&',
+              action2: '&'
             }
           };
         });

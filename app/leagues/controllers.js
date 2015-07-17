@@ -12,12 +12,17 @@
         $scope.league = league.data;
       });
 
+      $scope.getOne = function(path) {
+        $location.path(path);
+      };
+
       $scope.createLeague = function(newLeague) {
         LeagueService.createLeague(newLeague);
         $location.path('/leagues');
       };
 
       $scope.deleteLeague = function(id) {
+        alert('This league has been deleted');
         LeagueService.deleteLeague(id);
         $location.path('/leagues');
       };

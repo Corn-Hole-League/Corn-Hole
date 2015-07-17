@@ -1,7 +1,9 @@
+<div class="leaguesHeader">
 <form class="search">
-    <input type="text" ng-model="search.title" value="" placeholder="Search Title">
-    <input type="text" ng-model="search.location" value="" placeholder="Search Location">
+    <input class="leagueIn" type="text" ng-model="search.title" value="" placeholder="Search Title">
+    <input class="leagueIn" type="text" ng-model="search.location" value="" placeholder="Search Location">
 </form>
+</div>
 
 <h2>Leagues List View</h2>
 
@@ -20,4 +22,4 @@
 	</div>
 </div>
 
-<leagues-dir ng-repeat="league in leagues | filter: search" ng-model="search"  l="league" action="deleteLeague(league._id)" data-id="{{league._id}}"></leagues-dir>
+<leagues-dir ng-repeat="league in leagues | filter: search" ng-model="search"  l="league" action="deleteLeague(league._id)" action2="getOneLeague(league._id)"  data-id="{{league._id}}"></leagues-dir>

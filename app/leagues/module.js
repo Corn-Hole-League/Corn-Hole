@@ -12,12 +12,9 @@
         controllerAs: 'LeaguesCtrl'
       })
       .when('/leagues/:leagueId', {
-         templateURL: 'app/leagues/views/detail.html',
-         controller: 'LeaguesController',
-         controllerAs: 'LeaguesCtrl'
+         templateUrl: 'app/leagues/views/detail.html',
+         controller: 'LeaguesController'
        })
-      .otherwise({
-         redirectTo: '/404'
-       });
+
     });
 })();
