@@ -1,3 +1,4 @@
-class Api::LeaguesController < ApplicationController
-
+class Api::TeamsController < ApplicationController
+  def index
+  end
 end
