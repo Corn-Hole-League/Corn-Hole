@@ -4,7 +4,7 @@
     .module('leagues')
     .factory('LeagueService', function ($http, $rootScope) {
 
-     var cornHoleUrl = "http://tiy-fee-rest.herokuapp.com/collections/apptesting"
+     var cornHoleUrl = "https://fast-eyrie-4476.herokuapp.com/api/leagues"
 
      var getLeagues = function() {
         return $http.get(cornHoleUrl).then(function(leagues){
@@ -13,8 +13,7 @@
       };
 
       var getOneLeague = function (leagueId) {
-        console.log("LEAGUE:", leagueId);
-        return $http.get(cornHoleUrl + "/" + leagueId).then(function(league){
+        return $http.jsonp(cornHoleUrl + "/" + leagueId).then(function(league){
           return league;
         })
     };

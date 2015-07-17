@@ -1,11 +1,11 @@
 (function () {
   'use strict';
   angular
-        .module('leagues')
-        .directive('leaguesDir', function () {
+        .module('team')
+        .directive('teamDir', function () {
           return {
             restrict: 'E',
-            templateUrl: '/app/public/leagues/views/leaguesDir.directive.html',
+            templateUrl: 'app/team/views/teamDir.directive.html',
             transclude: true,
             scope: {
               l: '=',

@@ -5,16 +5,14 @@
     .controller('LeaguesController', function($scope, LeagueService, $location, $routeParams){
 
       LeagueService.getLeagues().then(function(leagues){
+        console.log("Leagues data",leagues.data);
         $scope.leagues = leagues.data;
       });
 
       LeagueService.getOneLeague($routeParams.leagueId).then(function(league){
+         console.log("One League Data", league.data);
         $scope.league = league.data;
       });
-
-      $scope.getOne = function(path) {
-        $location.path(path);
-      };
 
       $scope.createLeague = function(newLeague) {
         LeagueService.createLeague(newLeague);
