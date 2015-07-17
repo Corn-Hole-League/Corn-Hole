@@ -5,7 +5,8 @@
       'ngRoute',
       'underscore',
       'moment',
-      'leagues'
+      'leagues',
+      'ui.bootstrap'
     ])
     .config(function ($routeProvider) {
       $routeProvider

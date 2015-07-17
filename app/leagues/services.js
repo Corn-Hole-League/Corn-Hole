@@ -2,38 +2,44 @@
   'use strict';
   angular
     .module('leagues')
-    .factory('LeagueService', function ($http, $rootScope, $q, $cacheFactory) {
+    .factory('LeagueService', function ($http, $rootScope) {
 
-     var cacheCreator = $cacheFactory('CacheCreator');
      var cornHoleUrl = "http://tiy-fee-rest.herokuapp.com/collections/apptesting"
 
      var getLeagues = function() {
         return $http.get(cornHoleUrl).then(function(leagues){
           return leagues;
-      })
-    };
+        })
+      };
 
-    var createLeague = function(league){
-      $http.post(cornHoleUrl, league).success(function(response) {
-        $rootScope.$broadcast('league:created');
-      }).error(function(error){
-        console.log("error " + error);
-      })
-    };
+      var getOneLeague = function (leagueId) {
+        return $http.get(cornHoleUrl + leagueId).then(function(league){
+          return league;
+        })
+      };
 
-    var deleteLeague = function(id){
-      $http.delete(cornHoleUrl + "/" + id).success(function(response) {
-        $rootScope.$broadcast('league:deleted');
-      }).error(function(error){
-        console.log("error " + error);
-      })
-    }
+      var createLeague = function(league){
+        $http.post(cornHoleUrl, league).success(function(response) {
+          $rootScope.$broadcast('league:created');
+        }).error(function(error){
+          console.log("error " + error);
+        })
+      };
 
-    return{
-      getLeagues: getLeagues,
-      createLeague: createLeague,
-      deleteLeague: deleteLeague
-    };
-  });
+      var deleteLeague = function(id){
+        $http.delete(cornHoleUrl + "/" + id).success(function(response) {
+          $rootScope.$broadcast('league:deleted');
+        }).error(function(error){
+          console.log("error " + error);
+        })
+      }
+
+      return{
+        getLeagues: getLeagues,
+        getOneLeague: getOneLeague,
+        createLeague: createLeague,
+        deleteLeague: deleteLeague
+      };
+    });
 
 })();

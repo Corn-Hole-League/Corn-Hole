@@ -2,17 +2,15 @@
   'use strict';
   angular
         .module('leagues')
-        .directive('leagues', function () {
+        .directive('leaguesDir', function () {
           return {
             restrict: 'E',
-            templateUrl: 'app/leagues/views/leagues.directive.html',
+            templateUrl: 'app/leagues/views/leaguesDir.directive.html',
             transclude: true,
             scope: {
-              p: '=',
+              l: '=',
               action: '&'
             }
           };
-
         });
-
 })();
