@@ -1,0 +1,15 @@
+<h2>Leagues List View</h2>
+
+<div class="leaguesForm" ng-controller="LeaguesController">
+<form name="leaguesForm">
+<input type="text" name="title" value="" ng-model="newLeague.title" placeholder="League Name" required/>
+<button type="button" name="leaguesForm" ng-click="createLeague(newLeague)">Create League</button>
+</form>
+</div>
+
+<div ng-controller="LeaguesController">
+<div class="leaguesList" ng-repeat="league in leagues">
+<a href="#/leagues/{{league._id}}">Detail</a>
+<h2>{{league.title}}</h2>
+<button type="button" name="button" ng-click="deleteLeague(league._id)">Delete</button>
+</div>

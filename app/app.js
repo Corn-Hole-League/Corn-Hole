@@ -5,6 +5,7 @@
       'ngRoute',
       'underscore',
       'moment',
+      'leagues'
     ])
     .config(function ($routeProvider) {
       $routeProvider
