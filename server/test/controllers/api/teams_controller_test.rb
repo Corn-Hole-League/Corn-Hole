@@ -9,17 +9,6 @@ class Api::TeamsControllerTest < ActionController::TestCase
     @attributes = Team.attribute_names
   end
 
-  # test "GET #index" do
-  #   get :index, format: :json
-  #
-  #   returned = JSON.parse(response.body, symbolize_names: true)[0]
-  #   @attributes.each do |attr|
-  #     @team.send(attr).class == Date ? expected = @team.send(attr).to_s : expected = @team.send(attr)
-  #     assert_equal expected, returned[attr.to_sym]
-  #   end
-  #   assert_response :success
-  # end
-
   test 'creates with valid attribute' do
     assert_difference('Team.count', 1) do
       post :create, format: :json, league_id: @league, team: { name: 'TeamBoBerry' }
