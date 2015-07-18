@@ -31,11 +31,6 @@ class Api::LeaguesControllerTest < ActionController::TestCase
     assert_response 422
   end
 
-  test '' do
-
-  end
-
-
   test 'GET #show' do
     get :show, format: :json, id: @league
     returned = JSON.parse(response.body, symbolize_names: true)

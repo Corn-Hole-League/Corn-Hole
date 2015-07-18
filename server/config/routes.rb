@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  namespace :api do
+  namespace :api, defaults: {format: 'json'} do
     with_options except: [:new, :edit] do |r|
       r.resources :leagues do
         r.resources :teams
@@ -8,6 +8,3 @@ Rails.application.routes.draw do
     end
   end
 end
-
-
-# add to line 2 later: , defaults: {format: 'json'}
