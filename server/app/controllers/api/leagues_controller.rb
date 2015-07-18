@@ -1,4 +1,7 @@
 class Api::LeaguesController < ApplicationController
+  # respond_to :json
+  before_filter :set_default_response_format
+
   def index
     @leagues = League.all
     render json: @leagues

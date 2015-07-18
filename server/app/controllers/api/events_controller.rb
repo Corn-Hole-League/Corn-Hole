@@ -4,15 +4,15 @@ class Api::EventsController < ApplicationController
     render json: @events
   end
 
-  # def create
-  #   @event = Event.new(event_params)
-  #   if @event.save
-  #     render json: @event, status: 201
-  #   else
-  #     render json: @event.errors, status: 422
-  #   end
-  # end
-  #
+  def create
+    @event = Event.new(event_params)
+    if @event.save
+      render json: @event, status: 201
+    else
+      render json: @event.errors, status: 422
+    end
+  end
+
   # def show
   #   @event = get_event
   #   render json: @event, status: 200
@@ -40,6 +40,6 @@ class Api::EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name)
+    params.require(:event).permit(:name, :location, :occurs_on, :starts_at)
   end
 end
