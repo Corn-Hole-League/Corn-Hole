@@ -53,7 +53,6 @@ class Api::EventsControllerTest < ActionController::TestCase
 
   test 'updates with valid attributes' do
     patch :update, format: :json, id: @event, event: { name: 'Oh Hai' }
-
   end
 
   test 'does not update with invalid attributes' do
@@ -67,6 +66,5 @@ class Api::EventsControllerTest < ActionController::TestCase
     end
     assert_response :success
   end
-
 
 end
