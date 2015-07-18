@@ -1,8 +1,4 @@
 class Api::TeamsController < ApplicationController
-  # def index
-  #   @teams = Team.all
-  # end
-
   def create
     @league = get_league
     @team = @league.teams.new(team_params)
