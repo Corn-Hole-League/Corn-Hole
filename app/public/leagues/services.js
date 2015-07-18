@@ -12,8 +12,9 @@
         })
       };
 
-      var getOneLeague = function (leagueId) {
+      var getOneLeague = function(leagueId) {
         return $http.get(cornHoleUrl + "/" + leagueId).then(function(league){
+          console.log("the league", league);
           return league;
         })
     };

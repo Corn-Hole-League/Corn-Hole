@@ -10,7 +10,6 @@
       });
 
       LeagueService.getOneLeague($routeParams.leagueId).then(function(league){
-         console.log("One League Data", league.data);
         $scope.league = league.data;
       });
 
@@ -20,6 +19,7 @@
       };
 
       $scope.deleteLeague = function(id) {
+        console.log("LEAGUE ID", id);
         alert('This league has been deleted');
         LeagueService.deleteLeague(id);
         $location.path('/leagues');
