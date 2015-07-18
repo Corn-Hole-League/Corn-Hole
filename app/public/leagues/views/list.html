@@ -19,4 +19,4 @@
 	</div>
 </div>
 
-<leagues-dir ng-repeat="league in leagues | filter: search" ng-model="search"  l="league" action="deleteLeague(league._id)" action2="getOneLeague(league._id)"  data-id="{{league._id}}"></leagues-dir>
+<leagues-dir ng-repeat="league in leagues | filter: search" ng-model="search"  l="league" action="deleteLeague(league.id)" action2="getOneLeague(league.id)"  data-id="{{league.id}}"></leagues-dir>
