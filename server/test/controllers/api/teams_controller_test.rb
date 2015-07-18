@@ -3,6 +3,7 @@ require 'test_helper'
 class Api::TeamsControllerTest < ActionController::TestCase
   def setup
     @league = leagues(:one)
+    @event = events(:one)
     @teams = Team.all
     @team = @league.teams.create!(name: 'Teamie McTeam')
     @attributes = Team.attribute_names
@@ -61,6 +62,20 @@ class Api::TeamsControllerTest < ActionController::TestCase
       post :destroy, league_id: @league, format: :json, id: @team
     end
     assert_response :success
+  end
+
+  test 'can join an event (has result with no score)' do
+    assert_difference('Result.count', 1) do
+      @team.events << @event
+    end
+    assert @team.events.include?(@event)
+  end
+
+  test 'cannot join the same event twice' do
+    @team.events << @event
+    assert_raises(ActiveRecord::RecordInvalid) do
+      @team.events << @event
+    end
   end
 
 end

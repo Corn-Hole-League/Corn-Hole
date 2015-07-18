@@ -27,6 +27,14 @@ class Api::TeamsController < ApplicationController
     else
       render json: @team.errors, status: 422
     end
+    if params[:event_ids].present?
+      @team.events = event_ids
+      if @team.save
+        render json: @team, status: 201
+      else
+        render json: @team.errors, status: 422
+      end
+    end
   end
 
   def destroy
@@ -48,4 +56,9 @@ class Api::TeamsController < ApplicationController
   def team_params
     params.require(:team).permit(:name, :logo, :ranking, :location)
   end
+
+  def event_ids
+    Events.where(id: params[:event_ids])
+  end
+
 end
