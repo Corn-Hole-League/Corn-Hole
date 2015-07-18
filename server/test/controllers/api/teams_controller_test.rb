@@ -38,7 +38,6 @@ class Api::TeamsControllerTest < ActionController::TestCase
 
   test 'updates with valid attributes' do
     patch :update, format: :json, league_id: @league, id: @team, team: { name: 'Oh Hai' }
-
   end
 
   test 'does not update with invalid attributes' do
@@ -65,6 +64,16 @@ class Api::TeamsControllerTest < ActionController::TestCase
     assert_raises(ActiveRecord::RecordInvalid) do
       @team.events << @event
     end
+  end
+
+  test 'can join multiple events in single update' do
+    @event2 = events(:two)
+    assert_difference('Result.count', 2) do
+      @team.events << @event
+      @team.events << @event2
+    end
+    assert @team.events.include?(@event)
+    assert @team.events.include?(@event2)
   end
 
 end
