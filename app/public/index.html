@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Corn Hole League</title>
+  <link href='http://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="main.css" media="screen" title="no title" charset="utf-8">
@@ -12,8 +13,11 @@
     <nav>
       <a href="#/"><li>Home</li></a>
       <a href="#/leagues"><li>Leagues</li></a>
+      <a href="#/teams"><li>Teams</li></a>
     </nav>
   </header>
+<div class="gradient"></div>
+<div class="splashPic"></div>
 
 <ng-view></ng-view>
 
@@ -25,22 +29,22 @@
 <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 
 <!-- app files -->
-<script src="app/app.js" charset="utf-8"></script>
-<script src="app/controllers.js" charset="utf-8"></script>
-<script src="app/services.js" charset="utf-8"></script>
+<script src="app.js" charset="utf-8"></script>
+<script src="controllers.js" charset="utf-8"></script>
+<script src="services.js" charset="utf-8"></script>
 
 <!-- team files -->
 
-<script type="text/javascript" src="app/team/module.js"></script>
-<script type="text/javascript" src="app/team/controllers.js"></script>
-<script type="text/javascript" src="app/team/services.js"></script>
+<script type="text/javascript" src="team/module.js"></script>
+<script type="text/javascript" src="team/controllers.js"></script>
+<script type="text/javascript" src="team/services.js"></script>
 
 <!-- league files -->
 
-<script src="app/leagues/module.js" charset="utf-8"></script>
-<script src="app/leagues/controllers.js" charset="utf-8"></script>
-<script src="app/leagues/services.js" charset="utf-8"></script>
-<script src="app/leagues/directive.js" charset="utf-8"></script>
+<script src="leagues/module.js" charset="utf-8"></script>
+<script src="leagues/controllers.js" charset="utf-8"></script>
+<script src="leagues/services.js" charset="utf-8"></script>
+<script src="leagues/directive.js" charset="utf-8"></script>
 
 </body>
 </html>

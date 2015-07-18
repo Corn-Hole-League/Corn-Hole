@@ -1,4 +1,4 @@
-<article data-id="{{l._id}}">
+<article data-id="{{l.id}}">
 <div class="leaguesList">
 <div class="container">
 <div class="row">
@@ -6,9 +6,9 @@
 <img class="leagueLogo" ng-src="{{l.logo}}" alt="" />
 </div>
 <div class="col-xs-8 leagueListDetails">
-<h2 class="leagueTitle"> {{l.title}}</h2>
-<h4>{{l.location}}</h4>
-<a href="#/leagues/{{l._id}}">Detail</a>
+<h2 class="leagueTitle"> {{l.name}}</h2>
+<a href="#/leagues/{{l.id}}">Detail</a>
+<div class="leagueCreate">{{l.created_at}}</div>
 </div>
 <div ng-click="action()"><i class="fa fa-times delete"></i></div>
 </div>

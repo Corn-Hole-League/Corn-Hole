@@ -5,6 +5,7 @@
     .controller('LeaguesController', function($scope, LeagueService, $location, $routeParams){
 
       LeagueService.getLeagues().then(function(leagues){
+        console.log("Leagues data",leagues.data);
         $scope.leagues = leagues.data;
       });
 
@@ -18,6 +19,8 @@
       };
 
       $scope.deleteLeague = function(id) {
+        console.log("LEAGUE ID", id);
+        alert('This league has been deleted');
         LeagueService.deleteLeague(id);
         $location.path('/leagues');
       };
