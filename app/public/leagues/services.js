@@ -13,7 +13,7 @@
       };
 
       var getOneLeague = function (leagueId) {
-        return $http.jsonp(cornHoleUrl + "/" + leagueId).then(function(league){
+        return $http.get(cornHoleUrl + "/" + leagueId).then(function(league){
           return league;
         })
     };
