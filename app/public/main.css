@@ -6,19 +6,30 @@ body {
 header {
   width: 100%;
   height: 5rem;
-  background-color: #207CBB;
+  background-color: #364C98;
   margin: 0;
   padding: 0;
+  display: flex;
 }
 
 nav {
+  width: 100%;
   display: flex;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 nav li {
   margin: 2rem 1rem;
   color: white;
+}
+
+nav a {
+  width: 33.3333%;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: -.7rem;
 }
 
 h2 {
@@ -35,6 +46,26 @@ a:hover {
 
 /* Homes */
 
+.primary {
+  position: absolute;
+  top: 50%;
+  left: -10rem;
+  font-size: 3rem;
+}
+
+.danger {
+  position: absolute;
+  top: 50%;
+  right: -10rem;
+  font-size: 3rem;
+}
+
+.buttonWrap {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .bean1 {
   width: 3rem;
   height: 3rem;
@@ -47,12 +78,32 @@ a:hover {
   top: 20rem;
 }
 
+.bean2 {
+  width: 3rem;
+  height: 3rem;
+  background-image: url("http://png-1.findicons.com/files/icons/901/pillow/512/red_pillow.png");
+  background-size: cover;
+  position: absolute;
+  -webkit-animation: beanTwo 5s infinite;
+  animation: beanTwo 5s infinite;
+  left: 0;
+  top: 20rem;
+}
+
 @-webkit-keyframes beanOne{
- 0%   {left: 0rem; top: 20rem;  transform: rotate(0deg)}
- 25%  {left: 20rem top: 10rem}
+ 0%   {left: 0px; top: 200px;  transform: rotate(0deg)}
+ 25%  {left: 200px top: 100px}
+ 50%  {left: 300px top: 0px}
+ 75%  {left: 400px top: 0px}
+ 100% {left: 500px; top:100px;  transform: rotate(360deg)}
+}
+
+@-webkit-keyframes beanTwo{
+ 0%   {left: 0rem; top: 30rem;  transform: rotate(0deg)}
+ 25%  {left: 20rem top: 15rem}
  50%  {left: 30rem top: 0rem}
- 75%  {left: 40rem top: 10rem}
- 100% {left: 50rem; top:20rem;  transform: rotate(360deg)}
+ 75%  {left: 40rem top: 15rem}
+ 100% {left: 50rem; top:30rem;  transform: rotate(360deg)}
 }
 
 .person1 {
@@ -70,6 +121,7 @@ a:hover {
   font-size: 5rem;
   margin: 1rem;
   font-family: 'Sigmar One', cursive;
+  color: white;
 }
 
 .homeIn {
@@ -79,17 +131,22 @@ a:hover {
 
 .loginBox {
   width: 100%;
-  border: 2px solid black;
+  border: 2px solid white;
   padding: 3rem;
-  margin-top: 12rem;
   border-radius: 4px;
-  background-color: white;
+  background-color: #2A3A89;
+  opacity: .9;
 }
 
 .loginBoxWrap {
   width: 60%;
   margin-left: auto;
   margin-right: auto;
+  position: absolute;
+  top: 5rem;
+  left: 10rem;
+  right: 10rem;
+  bottom: 5rem;
 }
 
 .splashPic {
@@ -106,27 +163,79 @@ a:hover {
 .gradient {
 width: 100%;
 height: 100%;
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0.6+0,0.6+100;White+to+Transparent */
-background: -moz-linear-gradient(top, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.6) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.6)), color-stop(100%,rgba(255,255,255,0.6))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%); /* IE10+ */
-background: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99ffffff', endColorstr='#99ffffff',GradientType=0 ); /* IE6-9 */
+background-image: url("http://static1.squarespace.com/static/50e63d92e4b05dd23a150903/t/53501f45e4b0a74166d77a35/1397759813979/");
+background-size: cover;
 position: absolute;
 z-index: -5;
+opacity: .9;
+}
+
+.gradient2 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -5;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0.6+0,0.6+100;White+to+Transparent */
+  background: -moz-linear-gradient(top, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.6) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.6)), color-stop(100%,rgba(255,255,255,0.6))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%); /* IE10+ */
+  background: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99ffffff', endColorstr='#99ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+.dropdown-menu {
+  background-color: #364C98;
+  color: white;
+}
+
+.white {
+  color: white;
+}
+
+.white:hover {
+  color: #B92227;
 }
 
 /* Leagues */
 
+.dropHead {
+  width: 33.3333%;
+  text-align: left;
+  color: white;
+  margin: .5rem 1rem;
+  font-size: 3rem;
+}
+
+.dropHead:hover {
+  color: #B92227;
+}
+
+.headTitle {
+  text-align: center;
+  margin: .5rem 0rem;
+  width: 33.3333%;
+  color: #B92227;
+  font-size: 3rem;
+}
+
+.learnHead {
+  width: 33.3333%;
+  text-align: right;
+  color: white;
+  margin: .5rem 1rem;
+  font-size: 3rem;
+}
+
 .leaguesContainer {
-  width: 80%;
+  width: 90%;
   height: 40rem;
   margin-left: auto;
   margin-right: auto;
   overflow: scroll;
-
+  background-color: white;
+  opacity: .95;
 }
 
 .leaguesHeader {
@@ -143,7 +252,7 @@ z-index: -5;
   margin: 2rem;
   border: 1px solid black;
   border-radius: 4px;
-  background-color: white;
+  background-color: #364C98;
 }
 
 .leagueLogo {
@@ -158,7 +267,6 @@ z-index: -5;
 .delete {
   color: maroon;
   font-size: 2rem;
-  float: right;
 }
 
 .delete:hover {

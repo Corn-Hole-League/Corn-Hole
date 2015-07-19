@@ -1,3 +1,25 @@
+<div class="gradient2"></div>
+<header>
+  <div class="dropHead">
+    <div class="btn-group" dropdown is-open="status.isopen">
+      <div class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+        <i class="fa fa-bars dropHead"></i>
+      </div>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#/"><span class="white">Home</span></a></li>
+        <li><a href="#/leagues"><span class="white">Leagues</span></a></li>
+        <li><a href="#/teams"><span class="white">Teams</span></a></li>
+        <li><a href="#/events"><span class="white">Events</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="headTitle">
+    ICHA
+  </div>
+  <div class="learnHead">
+    <a href="#/stepone"><i class="fa fa-question white"></i></a>
+  </div>
+</header>
 <div class="leaguesHeader">
 <form class="search">
     <input class="leagueIn" type="text" ng-model="search.name" value="" placeholder="Search Title">
@@ -18,4 +40,6 @@
   </div>
 </div> -->
 
+<div class="leaguesContainer">
 <comps-dir ng-repeat="comp in comps | filter: search" ng-model="search"  c="comp" action="deleteComp(comp.id)" action2="getOneComp(comp.id)"  data-id="{{comp.id}}"></comps-dir>
+</div>
