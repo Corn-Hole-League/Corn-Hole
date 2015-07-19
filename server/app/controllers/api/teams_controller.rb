@@ -1,4 +1,6 @@
 class Api::TeamsController < ApplicationController
+  before_filter :set_default_response_format
+
   def create
     @league = get_league
     @team = @league.teams.new(team_params)
@@ -19,17 +21,15 @@ class Api::TeamsController < ApplicationController
     @league = get_league
     @team = get_team(@league)
     if @team.update_attributes(team_params)
+      if params[:team][:event_ids]
+        params[:team][:event_ids].each do |e|
+          result = Result.new(team_id: @team.id, event_id: e)
+          result.save!
+        end
+      end
       render json: @team, status: 201
     else
       render json: @team.errors, status: 422
-    end
-    if params[:event_ids].present?
-      @team.events = event_ids
-      if @team.save
-        render json: @team, status: 201
-      else
-        render json: @team.errors, status: 422
-      end
     end
   end
 
@@ -50,11 +50,6 @@ class Api::TeamsController < ApplicationController
   end
 
   def team_params
-    params.require(:team).permit(:name, :logo, :ranking, :location)
+    params.require(:team).permit(:name, :logo, :ranking, :location, :event_ids)
   end
-
-  def event_ids
-    Events.where(id: params[:event_ids])
-  end
-
 end

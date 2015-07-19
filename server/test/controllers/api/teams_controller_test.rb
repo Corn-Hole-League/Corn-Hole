@@ -4,6 +4,7 @@ class Api::TeamsControllerTest < ActionController::TestCase
   def setup
     @league = leagues(:one)
     @event = events(:one)
+    @event2 = events(:two)
     @teams = Team.all
     @team = @league.teams.create!(name: 'Teamie McTeam')
     @attributes = Team.attribute_names
@@ -54,23 +55,22 @@ class Api::TeamsControllerTest < ActionController::TestCase
 
   test 'can join an event (has result with no score)' do
     assert_difference('Result.count', 1) do
-      @team.events << @event
+      patch :update, format: :json, league_id: @league, id: @team, team: { event_ids: [@event2.id] }
     end
-    assert @team.events.include?(@event)
+    assert @team.events.include?(@event2)
   end
 
   test 'cannot join the same event twice' do
-    @team.events << @event
+    patch :update, format: :json, league_id: @league, id: @team, team: { event_ids: [@event2.id] }
     assert_raises(ActiveRecord::RecordInvalid) do
-      @team.events << @event
+      patch :update, format: :json, league_id: @league, id: @team, team: { event_ids: [@event2.id] }
     end
   end
 
   test 'can join multiple events in single update' do
-    @event2 = events(:two)
     assert_difference('Result.count', 2) do
-      @team.events << @event
-      @team.events << @event2
+      patch :update, format: :json, league_id: @league, id: @team, team: { event_ids: [@event.id] }
+      patch :update, format: :json, league_id: @league, id: @team, team: { event_ids: [@event2.id] }
     end
     assert @team.events.include?(@event)
     assert @team.events.include?(@event2)

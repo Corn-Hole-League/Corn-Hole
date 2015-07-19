@@ -1,4 +1,6 @@
 class Api::EventsController < ApplicationController
+  before_filter :set_default_response_format
+
   def index
     @events = Event.all
     render json: @events
@@ -21,6 +23,12 @@ class Api::EventsController < ApplicationController
   def update
     @event = get_event
     if @event.update_attributes(event_params)
+      if params[:event][:team_ids] && params[:event][:score]
+        team_id = params[:event][:team_ids].first
+        result = get_result(team_id)
+        result.score = params[:event][:score]
+        result.save!
+      end
       render json: @event, status: 201
     else
       render json: @event.errors, status: 422
@@ -40,6 +48,11 @@ class Api::EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :league_id, :location, :occurs_on, :starts_at)
+    params.require(:event).permit(:name, :league_id, :location, :occurs_on, :starts_at, :team_ids)
   end
+
+  def get_result(team_id)
+    @event.results.find_by(team_id: team_id)
+  end
+
 end
