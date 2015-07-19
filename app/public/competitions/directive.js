@@ -1,14 +1,14 @@
 (function () {
   'use strict';
   angular
-        .module('team')
-        .directive('teamDir', function () {
+        .module('competitions')
+        .directive('compsDir', function () {
           return {
             restrict: 'E',
-            templateUrl: 'app/public/team/views/teamDir.directive.html',
+            templateUrl: '/app/public/competitions/views/compsDir.directive.html',
             transclude: true,
             scope: {
-              t: '=',
+              c: '=',
               action: '&',
               action2: '&'
             }

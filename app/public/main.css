@@ -35,10 +35,40 @@ a:hover {
 
 /* Homes */
 
+.bean1 {
+  width: 3rem;
+  height: 3rem;
+  background-image: url("http://png-3.findicons.com/files/icons/901/pillow/512/pillow.png");
+  background-size: cover;
+  position: absolute;
+  -webkit-animation: beanOne 5s infinite;
+  animation: beanOne 5s infinite;
+  left: 0;
+  top: 20rem;
+}
+
+@-webkit-keyframes beanOne{
+ 0%   {left: 0rem; top: 20rem;  transform: rotate(0deg)}
+ 25%  {left: 20rem top: 10rem}
+ 50%  {left: 30rem top: 0rem}
+ 75%  {left: 40rem top: 10rem}
+ 100% {left: 50rem; top:20rem;  transform: rotate(360deg)}
+}
+
+.person1 {
+  width: 25%;
+  height: 25%;
+  background-image: url("http://www.clker.com/cliparts/J/a/q/m/D/h/red-running-icon-on-transparent-background.svg");
+  background-size: cover;
+  position: absolute;
+  bottom: 5rem;
+  left: 5rem;
+}
+
 .mainTitle {
   text-align: center;
   font-size: 5rem;
-  margin-top: 5rem;
+  margin: 1rem;
   font-family: 'Sigmar One', cursive;
 }
 
@@ -51,8 +81,9 @@ a:hover {
   width: 100%;
   border: 2px solid black;
   padding: 3rem;
-  margin-top: 10rem;
+  margin-top: 12rem;
   border-radius: 4px;
+  background-color: white;
 }
 
 .loginBoxWrap {
@@ -88,6 +119,15 @@ z-index: -5;
 }
 
 /* Leagues */
+
+.leaguesContainer {
+  width: 80%;
+  height: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: scroll;
+
+}
 
 .leaguesHeader {
   width: 100%;

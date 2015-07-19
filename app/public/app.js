@@ -6,6 +6,7 @@
       'underscore',
       'moment',
       'leagues',
+      'competitions',
       'ui.bootstrap'
     ])
     .config(function ($routeProvider) {

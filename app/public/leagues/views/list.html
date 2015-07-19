@@ -13,10 +13,13 @@
 		<div class="well well-lg">
       <form name="leaguesForm">
       <input type="text" name="name" value="" ng-model="newLeague.name" placeholder="League Name" required/>
+      <input type="text" name="logo" value="" ng-model="newLeague.logo" placeholder="Logo" required/>
       <button class="btn btn-warning" type="button" name="leaguesForm" ng-click="createLeague(newLeague)">Create League</button>
       </form>
 		</div>
 	</div>
 </div>
 
+<div class="leaguesContainer">
 <leagues-dir ng-repeat="league in leagues | filter: search" ng-model="search"  l="league" action="deleteLeague(league.id)" action2="getOneLeague(league.id)"  data-id="{{league.id}}"></leagues-dir>
+</div>
