@@ -5,6 +5,7 @@ class Api::EventsControllerTest < ActionController::TestCase
     @league = leagues(:one)
     @events = Event.all
     @event = events(:one)
+    @team = teams(:one)
     @attributes = Event.attribute_names
   end
 
@@ -66,5 +67,18 @@ class Api::EventsControllerTest < ActionController::TestCase
     end
     assert_response :success
   end
+
+  test 'can add a score for a team' do
+    @team.events << @event
+    # binding.pry
+
+  end
+
+  # test 'cannot save a non-integer score' do
+  #   @team.events << @event
+  #   assert_raises(ActiveRecord::RecordInvalid) do
+  #     @team.events << @event
+  #   end
+  # end
 
 end

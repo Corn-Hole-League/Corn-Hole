@@ -1,4 +1,6 @@
 class Api::EventsController < ApplicationController
+  before_filter :set_default_response_format
+
   def index
     @events = Event.all
     render json: @events
@@ -25,6 +27,15 @@ class Api::EventsController < ApplicationController
     else
       render json: @event.errors, status: 422
     end
+    if params[:score].present?
+      result = get_result
+      result.update_attributes(score_params)
+      if @result.save
+        render json: @result, status: 201
+      else
+        render json: @result.errors, status: 422
+      end
+    end
   end
 
   def destroy
@@ -41,5 +52,13 @@ class Api::EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:name, :league_id, :location, :occurs_on, :starts_at)
+  end
+
+  def score_params
+    params.require(:event).permit(:score)
+  end
+
+  def get_result
+    Result.where(params[:team_id]).first
   end
 end
