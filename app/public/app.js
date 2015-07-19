@@ -6,6 +6,7 @@
       'underscore',
       'moment',
       'leagues',
+      'team',
       'competitions',
       'ui.bootstrap'
     ])

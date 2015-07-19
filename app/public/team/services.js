@@ -3,36 +3,44 @@
   angular
     .module('team')
     .factory('TeamService', function($http, $rootScope){
-      //uncomment with the corn-hole/teamUrl ...when we get it
-      // var teamUrl = "http://tiy-fee-rest.herokuapp.com/collections/mitch-etsy_store";
 
+      var teamsUrl = "https://fast-eyrie-4476.herokuapp.com/api/leagues/teams"
 
-       var getTeams = function(){
-         return $http.get(teamUrl).then(function(items){
-           var cartArray = items.data;
-           return cartArray;
+      var getTeams = function() {
+         return $http.get(teamsUrl).then(function(teams){
+           return teams;
          })
        };
 
-       var addToTeams = function(item){
-         $http.post(teamUrl, item).success(function(response){
-           $rootScope.$broadcast('item:created');
-         }).error(function(error){
+       var getOneTeam = function(teamId) {
+         return $http.get(teamsUrl + "/" + teamId).then(function(team){
+           console.log("the team", team);
+           return team;
          })
-       }
+     };
 
-       var removeFromTeams = function(id){
-         $http.delete(teamUrl + "/" + id).success(function(response){
-           $rootScope.$broadcast('item:deleted');
+       var createTeam = function(team){
+         $http.post(teamsUrl, team).success(function(response) {
+           $rootScope.$broadcast('team:created');
          }).error(function(error){
+           console.log("error " + error);
+         })
+       };
+
+       var deleteTeam = function(id){
+         $http.delete(teamsUrl + "/" + id).success(function(response) {
+           $rootScope.$broadcast('team:deleted');
+         }).error(function(error){
+           console.log("error " + error);
          })
        }
 
        return{
          getTeams: getTeams,
-         addToTeams: addToTeams,
-         removeFromTeams: removeFromTeams
+         getOneTeam: getOneTeam,
+         createTeam: createTeam,
+         deleteTeam: deleteTeam
        };
      });
 
-})();
+  })();

@@ -220,6 +220,14 @@ opacity: .9;
   font-size: 3rem;
 }
 
+.headTitle img {
+  height: 8rem;
+  width: 16rem;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+}
+
 .learnHead {
   width: 33.3333%;
   text-align: right;
@@ -230,22 +238,49 @@ opacity: .9;
 
 .leaguesContainer {
   width: 90%;
-  height: 40rem;
+  height: 45rem;
   margin-left: auto;
   margin-right: auto;
   overflow: scroll;
   background-color: white;
   opacity: .95;
+  border-radius: 5px;
 }
 
 .leaguesHeader {
   width: 100%;
   height: 4rem;
   background-color: black;
+  display: flex;
 }
 
-.leagueIn {
+.leagueIn{
   margin: .7rem;
+  width: 80%;
+  margin-left: 2rem;
+}
+
+.listImg {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  opacity: .8;
+  margin: 0;
+  padding: 0;
+}
+
+.search {
+  width: 40%;
+  z-index: 1;
+  margin: 0rem 1rem;
+}
+
+.league2 {
+  color: black;
+  text-align: center;
+  padding: 2rem;
+  font-family: 'Sigmar One', cursive;
+  text-decoration: underline;
 }
 
 .leaguesList {
@@ -255,13 +290,34 @@ opacity: .9;
   background-color: #364C98;
 }
 
+.middle {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
 .leagueLogo {
   margin: 1rem;
+}
+
+.formStuff {
+  width: 50%;
 }
 
 .leagueTitle {
   text-align: left;
   margin: 2rem 0rem;
+  color: white;
+  font-family: 'Sigmar One', cursive;
+}
+
+.leagueCreate {
+  color: white;
+  font-size: 2rem;
+}
+
+.topRight {
+  text-align: right;
 }
 
 .delete {
@@ -271,4 +327,10 @@ opacity: .9;
 
 .delete:hover {
   color: red;
+}
+
+.back {
+  color: white;
+  font-size: 3rem;
+  margin: 0rem 2rem;
 }
