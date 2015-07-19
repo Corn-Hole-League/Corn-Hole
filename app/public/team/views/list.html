@@ -42,5 +42,5 @@
        </div>
      </div>
    </div>
-   <teams-dir ng-repeat="team in teams | filter: search" ng-model="search"  t="team" action="deleteTeam(team.id)" action2="getOneTeam(team.id)"  data-id="{{team.id}}"></teams-dir>
+   <team-dir ng-repeat="team in teams | filter: search" ng-model="search"  t="team" action="deleteTeam(team.id)" action2="getOneTeam(team.id)"  data-id="{{team.id}}"></team-dir>
  </div>

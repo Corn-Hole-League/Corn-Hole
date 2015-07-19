@@ -1,17 +1,15 @@
 <article data-id="{{l.id}}">
 <div class="leaguesList">
 <div class="container">
+  <div ng-click="action()"><i class="fa fa-times delete"></i></div>
 <div class="row">
 <div class="col-xs-4">
-<img class="leagueLogo" ng-src="{{l.logo}}" alt="" />
+    <img class ="listImg" src="http://www.cornholeplayers.com/images/navhome/logo-cntr.jpg" alt="" />
 </div>
 <div class="col-xs-8 leagueListDetails">
-<h2 class="leagueTitle"> {{l.name}}</h2>
-<div class="leagueCreate">{{l.created_at}}</div>
-<a href="#/leagues/{{l.id}}">Detail</a>
+<a href="#/leagues/{{l.id}}"><h2 class="leagueTitle"> {{l.name}}</h2></a>
 <a href="#/leagues/{{l.id}}/teams">Teams</a>
 </div>
-<div ng-click="action()"><i class="fa fa-times delete"></i></div>
 </div>
 </div>
 </div>

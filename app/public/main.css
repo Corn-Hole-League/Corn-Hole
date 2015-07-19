@@ -260,6 +260,15 @@ opacity: .9;
   margin-left: 2rem;
 }
 
+.listImg {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  opacity: .8;
+  margin: 0;
+  padding: 0;
+}
+
 .search {
   width: 40%;
   z-index: 1;
@@ -298,6 +307,17 @@ opacity: .9;
 .leagueTitle {
   text-align: left;
   margin: 2rem 0rem;
+  color: white;
+  font-family: 'Sigmar One', cursive;
+}
+
+.leagueCreate {
+  color: white;
+  font-size: 2rem;
+}
+
+.topRight {
+  text-align: right;
 }
 
 .delete {
@@ -307,4 +327,10 @@ opacity: .9;
 
 .delete:hover {
   color: red;
+}
+
+.back {
+  color: white;
+  font-size: 3rem;
+  margin: 0rem 2rem;
 }

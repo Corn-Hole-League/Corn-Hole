@@ -1,43 +1,43 @@
 <div class="gradient2"></div>
-<header>
-  <div class="dropHead">
-    <div class="btn-group" dropdown is-open="status.isopen">
-      <div class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">
-        <i class="fa fa-bars dropHead"></i>
-      </div>
-      <ul class="dropdown-menu" role="menu">
-        <li><a href="#/leagues"><span class="white">Leagues</span></a></li>
-        <li><a href="#/events"><span class="white">Events</span></a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="headTitle">
-    <img src="http://www.cornholeplayers.com/images/navhome/logo-cntr.jpg" alt="" />
-  </div>
-  <div class="learnHead">
-    <a href="#/stepone"><i class="fa fa-question white"></i></a>
-  </div>
-</header>
-<div class="leaguesHeader">
-<form class="search">
-    <input class="leagueIn" type="text" ng-model="search.name" value="" placeholder="Search Title">
-</form>
-</div>
+    <header>
+          <div class="dropHead">
+              <div class="btn-group" dropdown is-open="status.isopen">
+                  <div class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+                      <i class="fa fa-bars dropHead"></i>
+                </div>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#/leagues"><span class="white">Leagues</span></a></li>
+                    <li><a href="#/events"><span class="white">Events</span></a></li>
+                </ul>
+            </div>
+        </div>
+              <div class="headTitle">
+                  <img src="http://www.cornholeplayers.com/images/navhome/logo-cntr.jpg" alt="" />
+              </div>
+                  <div class="learnHead">
+                      <a href="#/stepone"><i class="fa fa-question white"></i></a>
+                </div>
+      </header>
+              <div class="leaguesHeader">
+                  <form class="search">
+                      <input class="leagueIn" type="text" ng-model="search.name" value="" placeholder="Search Event Title">
+                  </form>
+              </div>
 
-<h2 class="league2">The Events</h2>
+                <h2 class="league2">The Events</h2>
 
-<div class="leaguesContainer">
-  <div ng-controller="CollapseDemoCtrl">
-   <button class="btn btn-danger middle" ng-click="isCollapsed = !isCollapsed">Create An Event</button>
-   <hr>
-   <div collapse="!isCollapsed">
-     <div class="well well-lg">
-       <form name="compsForm">
-       <input class="formStuff" type="text" name="name" value="" ng-model="comp.name" placeholder="Compeition Name" required/>
-       <button class="btn btn-danger" type="button" name="compsForm" ng-click="createComp(newComp)">Create League</button>
-       </form>
-     </div>
-   </div>
-  </div>
-<comps-dir ng-repeat="comp in comps | filter: search" ng-model="search"  c="comp" action="deleteComp(comp.id)" action2="getOneComp(comp.id)"  data-id="{{comp.id}}"></comps-dir>
-</div>
+                  <div class="leaguesContainer">
+                      <div ng-controller="CollapseDemoCtrl">
+                         <button class="btn btn-danger middle" ng-click="isCollapsed = !isCollapsed">Create An Event</button>
+                           <hr>
+                             <div collapse="!isCollapsed">
+                               <div class="well well-lg">
+                                 <form name="compsForm">
+                                     <input class="formStuff" type="text" name="name" value="" ng-model="newComp.name" placeholder="Event Name" required/>
+                                     <button class="btn btn-danger" type="button" name="compsForm" ng-click="createComp(newComp)">Submit</button>
+                               </form>
+                           </div>
+                       </div>
+                    </div>
+            <comps-dir ng-repeat="comp in comps | filter: search" ng-model="search"  c="comp" action="deleteComp(comp.id)" action2="getOneComp(comp.id)"  data-id="{{comp.id}}"></comps-dir>
+        </div>

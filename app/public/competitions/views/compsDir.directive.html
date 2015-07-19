@@ -1,19 +1,18 @@
 <article data-id="{{c.id}}">
-<div class="leaguesList">
-<div class="container">
-<div class="row">
-<div class="col-xs-4">
-</div>
-<div class="col-xs-8 leagueListDetails">
-<h2 class="leagueTitle"> {{c.name}}</h2>
-<a href="#/events/{{c.id}}">Detail</a>
-<div class="leagueCreate">{{c.created_at}}</div>
-<div class="leagueCreate">{{c.location}}</div>
-<div class="leagueCreate">{{c.occurs_on}}</div>
-<div class="leagueCreate">{{c.starts_at}}</div>
-</div>
-<div ng-click="action()"><i class="fa fa-times delete"></i></div>
-</div>
-</div>
-</div>
+    <div class="leaguesList">
+        <div class="container">
+          <div ng-click="action()"><i class="fa fa-times delete"></i></div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <img class ="listImg" src="http://www.cornholeplayers.com/images/navhome/logo-cntr.jpg" alt="" />
+              </div>
+                    <div class="col-xs-8 leagueListDetails">
+                        <a href="#/events/{{c.id}}"><h2 class="leagueTitle"> {{c.name}}</h2></a>
+                            <div class="leagueCreate">Location: {{c.location}}</div>
+                            <div class="leagueCreate">Date: {{c.occurs_on}}</div>
+                            <div class="leagueCreate">{{c.starts_at}}</div>
+                    </div>
+                  </div>
+           </div>
+    </div>
 </article>

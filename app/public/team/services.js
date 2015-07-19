@@ -3,7 +3,7 @@
   angular
     .module('team')
     .factory('TeamService', function($http, $rootScope){
-      //uncomment with the corn-hole/teamUrl ...when we get it
+
       var teamsUrl = "https://fast-eyrie-4476.herokuapp.com/api/leagues/teams"
 
       var getTeams = function() {
