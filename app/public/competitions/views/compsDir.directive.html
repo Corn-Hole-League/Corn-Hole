@@ -1,0 +1,19 @@
+<article data-id="{{c.id}}">
+<div class="leaguesList">
+<div class="container">
+<div class="row">
+<div class="col-xs-4">
+</div>
+<div class="col-xs-8 leagueListDetails">
+<h2 class="leagueTitle"> {{c.name}}</h2>
+<a href="#/events/{{c.id}}">Detail</a>
+<div class="leagueCreate">{{c.created_at}}</div>
+<div class="leagueCreate">{{c.location}}</div>
+<div class="leagueCreate">{{c.occurs_on}}</div>
+<div class="leagueCreate">{{c.starts_at}}</div>
+</div>
+<div ng-click="action()"><i class="fa fa-times delete"></i></div>
+</div>
+</div>
+</div>
+</article>

@@ -6,12 +6,17 @@
       'underscore',
       'moment',
       'leagues',
+      'competitions',
       'ui.bootstrap'
     ])
     .config(function ($routeProvider) {
       $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
+        controller: 'MainController'
+      })
+      .when('/stepone', {
+        templateUrl: 'views/stepOne.html',
         controller: 'MainController'
       })
         .when('/404', {

@@ -8,19 +8,12 @@
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="main.css" media="screen" title="no title" charset="utf-8">
 </head>
-<body ng-app="cornHole">
-  <header>
-    <nav>
-      <a href="#/"><li>Home</li></a>
-      <a href="#/leagues"><li>Leagues</li></a>
-      <a href="#/teams"><li>Teams</li></a>
-    </nav>
-  </header>
-<div class="gradient"></div>
+
 <div class="splashPic"></div>
 
-<ng-view></ng-view>
+<body ng-app="cornHole">
 
+<ng-view></ng-view>
 
 <script type="text/javascript" src="bower_components/angular/angular.js"></script>
 <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
@@ -45,6 +38,13 @@
 <script src="leagues/controllers.js" charset="utf-8"></script>
 <script src="leagues/services.js" charset="utf-8"></script>
 <script src="leagues/directive.js" charset="utf-8"></script>
+
+<!-- competition files -->
+
+<script src="competitions/module.js" charset="utf-8"></script>
+<script src="competitions/controllers.js" charset="utf-8"></script>
+<script src="competitions/services.js" charset="utf-8"></script>
+<script src="competitions/directive.js" charset="utf-8"></script>
 
 </body>
 </html>
