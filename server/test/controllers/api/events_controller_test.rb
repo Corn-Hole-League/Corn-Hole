@@ -72,19 +72,16 @@ class Api::EventsControllerTest < ActionController::TestCase
     @team.events << @event
     result = Result.find_by(team_id: @team.id, event_id: @event.id)
     patch :update, format: :json, id: @event, event: { team_ids: [@team.id], score: 29 }
-    result.reload
-    assert_equal 29, result.score
+    assert_equal 29, result.reload.score
   end
 
   test 'can edit a score for a team' do
     @team.events << @event
     result = Result.find_by(team_id: @team.id, event_id: @event.id)
     patch :update, format: :json, id: @event, event: { team_ids: [@team.id], score: 29 }
-    result.reload
-    assert_equal 29, result.score
+    assert_equal 29, result.reload.score
     patch :update, format: :json, id: @event, event: { team_ids: [@team.id], score: 51 }
-    result.reload
-    assert_equal 51, result.score
+    assert_equal 51, result.reload.score
   end
 
   test 'cannot save a non-integer score' do
@@ -93,8 +90,35 @@ class Api::EventsControllerTest < ActionController::TestCase
     assert_raises(ActiveRecord::RecordInvalid) do
       patch :update, format: :json, id: @event, event: { team_ids: [@team.id], score: 'abc' }
     end
-    result.reload
-    refute_equal 'abc', result.score
+    refute_equal 'abc', result.reload.score
   end
 
+  test 'adding a score also updates team ranking' do
+    @team.events << @event
+    old_team_rank = @team.ranking
+    new_team_rank = old_team_rank + 29
+    result = Result.find_by(team_id: @team.id, event_id: @event.id)
+    patch :update, format: :json, id: @event, event: { team_ids: [@team.id], score: 29 }
+    assert_equal new_team_rank, @team.reload.ranking
+  end
+
+  test 'reducing an existing score correctly updates team ranking' do
+    @team.events << @event
+    old_team_rank = @team.ranking
+    new_team_rank = old_team_rank + 13
+    result = Result.find_by(team_id: @team.id, event_id: @event.id)
+    patch :update, format: :json, id: @event, event: { team_ids: [@team.id], score: 29 }
+    patch :update, format: :json, id: @event, event: { team_ids: [@team.id], score: 13 }
+    assert_equal new_team_rank, @team.reload.ranking
+  end
+
+  test 'increasing an existing score correctly updates team ranking' do
+    @team.events << @event
+    old_team_rank = @team.ranking
+    new_team_rank = old_team_rank + 50
+    result = Result.find_by(team_id: @team.id, event_id: @event.id)
+    patch :update, format: :json, id: @event, event: { team_ids: [@team.id], score: 29 }
+    patch :update, format: :json, id: @event, event: { team_ids: [@team.id], score: 50 }
+    assert_equal new_team_rank, @team.reload.ranking
+  end
 end
