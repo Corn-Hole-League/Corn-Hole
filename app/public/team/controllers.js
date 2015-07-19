@@ -2,28 +2,39 @@
   'use strict';
   angular
     .module('team')
-    .controller('TeamsController', function($scope, _, TeamService, $location){
+    .controller('TeamsController', function($scope, _, TeamService, $location, $routeParams){
 
-        TeamService.getTeams().then(function(items){
-          $scope.items = items;
-        })
+      TeamService.getTeams().then(function(teams){
+        console.log("Teams data",teams.data);
+        $scope.teams = teams.data;
+      });
 
-      $scope.addToTeams = function(item){
-        TeamsService.addToCart(item);
-      }
+      TeamService.getOneTeam($routeParams.teamId).then(function(team){
+        $scope.team = team.data;
+      });
 
-      $scope.removeFromTeams = function(id){
-        TeamsService.removeFromTeams(id);
-      }
+      $scope.createTeam = function(newTeam) {
+        TeamService.createTeam(newTeam);
+      };
+
+      $scope.deleteTeam = function(id) {
+        console.log("Team ID", id);
+        alert('This league has been deleted');
+        TeamService.deleteTeam(id);
+      };
 
       var watchCallback = function () {
-          TeamsService.getTeams().then(function (items) {
-            $scope.items = items;
-          });
-        };
+        TeamService.getTeams().then(function(teams){
+          $scope.teams = teams.data;
+        });
+      };
 
-      $scope.$on('item:deleted', watchCallback);
-      $scope.$on('item:created', watchCallback);
+      $scope.$on('team:deleted', watchCallback);
+      $scope.$on('team:created', watchCallback);
+    })
+
+    .controller('CollapseDemoCtrl', function ($scope) {
+      $scope.isCollapsed = false;
     });
 
-})();
+  })();
