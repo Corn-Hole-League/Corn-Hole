@@ -67,53 +67,113 @@ a:hover {
 }
 
 .bean1 {
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   background-image: url("http://png-3.findicons.com/files/icons/901/pillow/512/pillow.png");
   background-size: cover;
   position: absolute;
   -webkit-animation: beanOne 5s infinite;
   animation: beanOne 5s infinite;
-  left: 0;
-  top: 20rem;
+  right: 20;
+  bottom: 4rem;
 }
 
 .bean2 {
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   background-image: url("http://png-1.findicons.com/files/icons/901/pillow/512/red_pillow.png");
   background-size: cover;
   position: absolute;
-  -webkit-animation: beanTwo 5s infinite;
-  animation: beanTwo 5s infinite;
-  left: 0;
-  top: 20rem;
+  -webkit-animation: beanTwo 6s infinite;
+  animation: beanTwo 6s infinite;
+  left: 20rem;
+  bottom: 4rem;
+}
+
+.bean3 {
+  width: 2rem;
+  height: 2rem;
+  background-image: url("http://png-3.findicons.com/files/icons/901/pillow/512/pillow.png");
+  background-size: cover;
+  position: absolute;
+  -webkit-animation: beanThree 7s infinite;
+  animation: beanThree 7s infinite;
+  animation-delay: 2s;
+  right: 20;
+  bottom: 4rem;
+}
+
+.bean4 {
+  width: 2rem;
+  height: 2rem;
+  background-image: url("http://png-1.findicons.com/files/icons/901/pillow/512/red_pillow.png");
+  background-size: cover;
+  position: absolute;
+  -webkit-animation: beanFour 6s infinite;
+  animation: beanFour 6s infinite;
+  animation-delay: 1s;
+  left: 20rem;
+  bottom: 4rem;
 }
 
 @-webkit-keyframes beanOne{
- 0%   {left: 0px; top: 200px;  transform: rotate(0deg)}
- 25%  {left: 200px top: 100px}
- 50%  {left: 300px top: 0px}
- 75%  {left: 400px top: 0px}
- 100% {left: 500px; top:100px;  transform: rotate(360deg)}
+  0%   {right: 17rem; bottom: 15rem;  transform: rotate(0deg)}
+  40%  {right: 70rem; bottom: 30rem;  transform: rotate(360deg)}
+  100% {right: 100rem; bottom: 4rem;  transform: rotate(888deg)}
 }
 
 @-webkit-keyframes beanTwo{
- 0%   {left: 0rem; top: 30rem;  transform: rotate(0deg)}
- 25%  {left: 20rem top: 15rem}
- 50%  {left: 30rem top: 0rem}
- 75%  {left: 40rem top: 15rem}
- 100% {left: 50rem; top:30rem;  transform: rotate(360deg)}
+ 0%   {left: 17rem; bottom: 15rem;  transform: rotate(0deg)}
+ 40%  {left: 70rem; bottom: 35rem;  transform: rotate(560deg)}
+ 100% {left: 100rem; bottom: 4rem;  transform: rotate(960deg)}
 }
 
-.person1 {
-  width: 25%;
-  height: 25%;
-  background-image: url("http://www.clker.com/cliparts/J/a/q/m/D/h/red-running-icon-on-transparent-background.svg");
-  background-size: cover;
+@-webkit-keyframes beanThree{
+  0%   {right: 17rem; bottom: 15rem;  transform: rotate(0deg)}
+  40%  {right: 70rem; bottom: 30rem;}
+  100% {right: 100rem; bottom: 4rem;  transform: rotate(360deg)}
+}
+
+@-webkit-keyframes beanFour{
+  0%   {left: 17rem; bottom: 15rem;  transform: rotate(0deg)}
+  40%  {left: 70rem; bottom: 25rem;}
+  100% {left: 100rem; bottom: 4rem;  transform: rotate(360deg)}
+}
+
+.board1 img{
+  width: 10rem;
+  height: 10rem;
+  bottom: 4rem;
+  left: 20rem;
   position: absolute;
-  bottom: 5rem;
-  left: 5rem;
+  transform: scaleX(-1);
+  filter: FlipH;
+}
+
+.board2 img{
+  width: 10rem;
+  height: 10rem;
+  bottom: 4rem;
+  right: 20rem;
+  position: absolute;
+}
+
+.person1 img{
+  width: 15rem;
+  height: 15rem;
+  bottom: 8rem;
+  left: 8rem;
+  position: absolute;
+}
+
+.person2 img{
+  width: 15rem;
+  height: 15rem;
+  bottom: 8rem;
+  right: 8rem;
+  position: absolute;
+  transform: scaleX(-1);
+  filter: FlipH;
 }
 
 .mainTitle {
@@ -333,4 +393,25 @@ opacity: .9;
   color: white;
   font-size: 3rem;
   margin: 0rem 2rem;
+}
+
+.forward {
+  color: white;
+  font-size: 3rem;
+  position: absolute;
+  right: 1rem;
+}
+
+.howToWrapper {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+}
+
+.howToBox {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+  opacity: .7;
 }
