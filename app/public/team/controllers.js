@@ -4,12 +4,12 @@
     .module('team')
     .controller('TeamsController', function($scope, TeamService, $location, $routeParams){
 
-      TeamService.getTeams().then(function(teams){
+      TeamService.getTeams($routeParams.leagueId).then(function(teams){
         console.log("Teams data",teams.data);
         $scope.teams = teams.data;
       });
 
-      TeamService.getOneTeam($routeParams.teamId).then(function(team){
+      TeamService.getOneTeam($routeParams.leagueId).then(function(team){
         $scope.team = team.data;
       });
 
