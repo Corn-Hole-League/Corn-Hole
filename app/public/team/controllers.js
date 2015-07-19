@@ -2,7 +2,7 @@
   'use strict';
   angular
     .module('team')
-    .controller('TeamsController', function($scope, _, TeamService, $location, $routeParams){
+    .controller('TeamsController', function($scope, TeamService, $location, $routeParams){
 
       TeamService.getTeams().then(function(teams){
         console.log("Teams data",teams.data);
@@ -15,12 +15,14 @@
 
       $scope.createTeam = function(newTeam) {
         TeamService.createTeam(newTeam);
+        // $location.path('/leagues');
       };
 
       $scope.deleteTeam = function(id) {
         console.log("Team ID", id);
         alert('This league has been deleted');
         TeamService.deleteTeam(id);
+        // $location.path('/leagues');
       };
 
       var watchCallback = function () {
