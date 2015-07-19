@@ -2,5 +2,12 @@ one:
   name: "Cornhole: TDM"
   location: "The Bar"
   league_id: 1
-  occurs_on: 2015-07-16
-  starts_at: 2015-07-16 15:31:12
+  occurs_on: '2015-07-16'
+  starts_at: '15:31:12'
+
+two:
+  name: "Cornhole Throwdown"
+  location: "The Other Bar"
+  league_id: 1
+  occurs_on: '2015-07-25'
+  starts_at: '15:14:15'
