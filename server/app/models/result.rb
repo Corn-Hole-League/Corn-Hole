@@ -3,5 +3,6 @@ class Result < ActiveRecord::Base
   belongs_to :team
 
   validates :event_id, :team_id, presence: true
-  validates_uniqueness_of :team_id, scope: :event_id
+  validates :team_id, uniqueness: { scope: :event_id }
+  validates :score, numericality: { allow_blank: true }
 end

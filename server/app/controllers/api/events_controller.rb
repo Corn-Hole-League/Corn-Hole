@@ -23,18 +23,15 @@ class Api::EventsController < ApplicationController
   def update
     @event = get_event
     if @event.update_attributes(event_params)
+      if params[:event][:team_ids] && params[:event][:score]
+        team_id = params[:event][:team_ids].first
+        result = get_result(team_id)
+        result.score = params[:event][:score]
+        result.save!
+      end
       render json: @event, status: 201
     else
       render json: @event.errors, status: 422
-    end
-    if params[:score].present?
-      result = get_result
-      result.update_attributes(score_params)
-      if @result.save
-        render json: @result, status: 201
-      else
-        render json: @result.errors, status: 422
-      end
     end
   end
 
@@ -51,14 +48,11 @@ class Api::EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :league_id, :location, :occurs_on, :starts_at)
+    params.require(:event).permit(:name, :league_id, :location, :occurs_on, :starts_at, :team_ids)
   end
 
-  def score_params
-    params.require(:event).permit(:score)
+  def get_result(team_id)
+    @event.results.find_by(team_id: team_id)
   end
 
-  def get_result
-    Result.where(params[:team_id]).first
-  end
 end

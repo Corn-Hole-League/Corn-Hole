@@ -70,15 +70,31 @@ class Api::EventsControllerTest < ActionController::TestCase
 
   test 'can add a score for a team' do
     @team.events << @event
-    # binding.pry
-
+    result = Result.find_by(team_id: @team.id, event_id: @event.id)
+    patch :update, format: :json, id: @event, event: { team_ids: [@team.id], score: 29 }
+    result.reload
+    assert_equal 29, result.score
   end
 
-  # test 'cannot save a non-integer score' do
-  #   @team.events << @event
-  #   assert_raises(ActiveRecord::RecordInvalid) do
-  #     @team.events << @event
-  #   end
-  # end
+  test 'can edit a score for a team' do
+    @team.events << @event
+    result = Result.find_by(team_id: @team.id, event_id: @event.id)
+    patch :update, format: :json, id: @event, event: { team_ids: [@team.id], score: 29 }
+    result.reload
+    assert_equal 29, result.score
+    patch :update, format: :json, id: @event, event: { team_ids: [@team.id], score: 51 }
+    result.reload
+    assert_equal 51, result.score
+  end
+
+  test 'cannot save a non-integer score' do
+    @team.events << @event
+    result = Result.find_by(team_id: @team.id, event_id: @event.id)
+    assert_raises(ActiveRecord::RecordInvalid) do
+      patch :update, format: :json, id: @event, event: { team_ids: [@team.id], score: 'abc' }
+    end
+    result.reload
+    refute_equal 'abc', result.score
+  end
 
 end

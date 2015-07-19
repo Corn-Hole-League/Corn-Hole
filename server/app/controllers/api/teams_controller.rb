@@ -52,10 +52,4 @@ class Api::TeamsController < ApplicationController
   def team_params
     params.require(:team).permit(:name, :logo, :ranking, :location, :event_ids)
   end
-
-  def event_ids
-    # params.require(:team).permit(:event_ids)
-    Event.where(id: params[:event_id])
-  end
-
 end
