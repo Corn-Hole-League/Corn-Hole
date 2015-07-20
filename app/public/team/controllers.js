@@ -7,11 +7,13 @@
       TeamService.getTeams($routeParams.leagueId).then(function(teams){
         console.log("Teams data",teams.data);
         $scope.teams = teams.data;
+        console.log("I get Teams and live in controller.js");
       });
 
-      TeamService.getOneTeam($routeParams.leagueId).then(function(team){
-        $scope.team = team.data;
-      });
+      // TeamService.getOneTeam($routeParams.leagueId).then(function(team){
+      //   $scope.team = team.data;
+      //   console.log("I get one team and live in controller.js");
+      // });
 
       $scope.createTeam = function(newTeam) {
         TeamService.createTeam(newTeam);
@@ -20,7 +22,7 @@
 
       $scope.deleteTeam = function(id) {
         console.log("Team ID", id);
-        alert('This league has been deleted');
+        alert('This team has been deleted from controller.js');
         TeamService.deleteTeam(id);
         // $location.path('/leagues');
       };
@@ -32,11 +34,13 @@
       };
 
       $scope.$on('team:deleted', watchCallback);
+      console.log("team data deleted");
       $scope.$on('team:created', watchCallback);
+      console.log("team data created");
     })
 
-    .controller('CollapseDemoCtrl', function ($scope) {
-      $scope.isCollapsed = false;
-    });
+    //  .controller('CollapseDemoCtrl', function ($scope) {
+    //    $scope.isCollapsed = false;
+    //  });
 
   })();
