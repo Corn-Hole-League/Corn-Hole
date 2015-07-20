@@ -25,9 +25,14 @@ class Api::EventsController < ApplicationController
     if @event.update_attributes(event_params)
       if params[:event][:team_ids] && params[:event][:score]
         team_id = params[:event][:team_ids].first
+        team = Team.find(team_id)
         result = get_result(team_id)
+        old_score = result.score
         result.score = params[:event][:score]
-        result.save!
+        if result.save!
+          team.ranking += (params[:event][:score] - old_score.to_i)
+          team.save!
+        end
       end
       render json: @event, status: 201
     else
