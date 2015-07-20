@@ -15,8 +15,8 @@
        };
 
       var getOneTeam = function(teamId, league_id) {
-        var teamsUrl = teamsUrl + league_id + "/teams"
-        return $http.get(teamsUrl + "/" + teamId).then(function(team){
+        var newTeamsUrl = teamsUrl + league_id + "/teams/" + teamId
+        return $http.get(newTeamsUrl).then(function(team){
           console.log("the team", team);
           return team;
         })

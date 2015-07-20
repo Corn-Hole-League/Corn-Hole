@@ -11,7 +11,7 @@
         controller: 'TeamsController',
         controllerAs: 'TeamsCtrl'
       })
-      .when('/leagues/:leagueId/:teamId', {
+      .when('/leagues/:leagueId/teams/:teamId', {
          templateUrl: '/app/public/team/views/detail.html',
          controller: 'TeamsController',
          controllerAs: 'TeamsCtrl'

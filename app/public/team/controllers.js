@@ -10,10 +10,10 @@
         console.log("I get Teams and live in controller.js");
       });
 
-      // TeamService.getOneTeam($routeParams.leagueId).then(function(team){
-      //   $scope.team = team.data;
-      //   console.log("I get one team and live in controller.js");
-      // });
+      TeamService.getOneTeam($routeParams.teamId, $routeParams.leagueId).then(function(team){
+        $scope.team = team.data;
+        console.log("I get one team and live in controller.js", team.data);
+      });
 
       $scope.createTeam = function(newTeam) {
         TeamService.createTeam(newTeam, $routeParams.leagueId);
