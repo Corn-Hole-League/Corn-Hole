@@ -16,8 +16,7 @@
       // });
 
       $scope.createTeam = function(newTeam) {
-        TeamService.createTeam(newTeam);
-        // $location.path('/leagues');
+        TeamService.createTeam(newTeam, $routeParams.leagueId);
       };
 
       $scope.deleteTeam = function(id) {
@@ -28,7 +27,7 @@
       };
 
       var watchCallback = function () {
-        TeamService.getTeams().then(function(teams){
+        TeamService.getTeams($routeParams.leagueId).then(function(teams){
           $scope.teams = teams.data;
         });
       };
