@@ -1,6 +1,13 @@
 class Api::TeamsController < ApplicationController
   before_filter :set_default_response_format
 
+  # Added for response to api/leagues/:league_id/teams
+  def index
+    league = get_league
+    @teams = league.teams
+    render json: @teams, status: 201
+  end
+
   def create
     @league = get_league
     @team = @league.teams.new(team_params)
