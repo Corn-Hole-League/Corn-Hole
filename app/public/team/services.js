@@ -14,7 +14,7 @@
          })
        };
 
-        var getOneTeam = function(teamId) {
+        var getOneTeam = function(league_id, teamId) {
           var teamsUrl = teamsUrl + league_id + "/teams"
           return $http.get(teamsUrl + "/" + teamId).then(function(team){
             console.log("the team", team);
@@ -22,7 +22,7 @@
           })
       };
 
-       var createTeam = function(team){
+       var createTeam = function(league_id, team){
          var teamsUrl = teamsUrl + league_id + "/teams"
          $http.post(teamsUrl, team).success(function(response) {
            $rootScope.$broadcast('team:created');
@@ -31,7 +31,7 @@
          })
        };
 
-       var deleteTeam = function(id){
+       var deleteTeam = function(league_id, id){
          var teamsUrl = teamsUrl + league_id + "/teams"
          $http.delete(teamsUrl + "/" + id).success(function(response) {
            $rootScope.$broadcast('team:deleted');
