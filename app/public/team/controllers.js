@@ -10,18 +10,17 @@
         console.log("I get Teams and live in controller.js");
       });
 
-      TeamService.getOneTeam($routeParams.leagueId).then(function(team){
-        $scope.team = team.data;
-        console.log("I get one team and live in controller.js");
-      });
+      // TeamService.getOneTeam($routeParams.leagueId).then(function(team){
+      //   $scope.team = team.data;
+      //   console.log("I get one team and live in controller.js");
+      // });
 
-      $scope.createTeam = function($routeParams.leagueId, newTeam) {
+      $scope.createTeam = function(newTeam) {
         TeamService.createTeam(newTeam);
-        console.log("I create teams and live in the controller.js");
         // $location.path('/leagues');
       };
 
-      $scope.deleteTeam = function($routeParams.leagueId, id) {
+      $scope.deleteTeam = function(id) {
         console.log("Team ID", id);
         alert('This team has been deleted from controller.js');
         TeamService.deleteTeam(id);
@@ -40,8 +39,8 @@
       console.log("team data created");
     })
 
-    // .controller('CollapseDemoCtrl', function ($scope) {
-    //   $scope.isCollapsed = false;
-    // });
+    //  .controller('CollapseDemoCtrl', function ($scope) {
+    //    $scope.isCollapsed = false;
+    //  });
 
   })();
