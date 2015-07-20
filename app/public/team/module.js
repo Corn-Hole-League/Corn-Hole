@@ -6,7 +6,7 @@
     ])
     .config(function ($routeProvider){
       $routeProvider
-      .when('/leagues/:league:Id/teams', {
+      .when('/leagues/:leagueId/teams', {
         templateUrl: '/app/public/team/views/list.html',
         controller: 'TeamsController',
         controllerAs: 'TeamsCtrl'

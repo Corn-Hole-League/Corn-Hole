@@ -40,8 +40,8 @@
       console.log("team data created");
     })
 
-    .controller('CollapseDemoCtrl', function ($scope) {
-      $scope.isCollapsed = false;
-    });
+    // .controller('CollapseDemoCtrl', function ($scope) {
+    //   $scope.isCollapsed = false;
+    // });
 
   })();
