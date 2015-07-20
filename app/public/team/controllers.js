@@ -10,14 +10,13 @@
         console.log("I get Teams and live in controller.js");
       });
 
-      // TeamService.getOneTeam($routeParams.leagueId).then(function(team){
-      //   $scope.team = team.data;
-      //   console.log("I get one team and live in controller.js");
-      // });
+      TeamService.getOneTeam($routeParams.teamId, $routeParams.leagueId).then(function(team){
+        $scope.team = team.data;
+        console.log("I get one team and live in controller.js", team.data);
+      });
 
       $scope.createTeam = function(newTeam) {
-        TeamService.createTeam(newTeam);
-        // $location.path('/leagues');
+        TeamService.createTeam(newTeam, $routeParams.leagueId);
       };
 
       $scope.deleteTeam = function(id) {
@@ -28,7 +27,7 @@
       };
 
       var watchCallback = function () {
-        TeamService.getTeams().then(function(teams){
+        TeamService.getTeams($routeParams.leagueId).then(function(teams){
           $scope.teams = teams.data;
         });
       };
