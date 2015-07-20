@@ -7,7 +7,7 @@
       var teamsUrl = "https://fast-eyrie-4476.herokuapp.com/api/leagues/"
 
       var getTeams = function(league_id) {
-        var teamsUrl = teamsUrl + "league_id" + "/teams"
+        var teamsUrl = teamsUrl + league_id + "/teams"
          return $http.get(teamsUrl).then(function(teams){
            return teams;
          })

@@ -5,7 +5,7 @@
         .directive('teamDir', function () {
           return {
             restrict: 'E',
-            templateUrl: '/app/public/team/views/teamDir.directive.htm',
+            templateUrl: '/app/public/team/views/teamDir.directive.html',
             transclude: true,
             scope: {
               t: '=',
