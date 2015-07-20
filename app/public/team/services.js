@@ -8,22 +8,21 @@
 
       var getTeams = function(league_id) {
         var newTeamsUrl = teamsUrl + league_id + "/teams"
-        // var teamsUrl = teamsUrl + league_id + "/teams"
          return $http.get(teamsUrl).then(function(teams){
            return teams;
          })
        };
 
-        var getOneTeam = function(league_id, teamId) {
-          var teamsUrl = teamsUrl + league_id + "/teams"
-          return $http.get(teamsUrl + "/" + teamId).then(function(team){
-            console.log("the team", team);
-            return team;
-          })
-      };
-
-       var createTeam = function(league_id, team){
+       var getOneTeam = function(teamId, league_id) {
          var teamsUrl = teamsUrl + league_id + "/teams"
+         return $http.get(teamsUrl + "/" + teamId).then(function(team){
+           console.log("the team", team);
+           return team;
+         })
+     };
+
+       var createTeam = function(team, league_id){
+         var teamsUrl = teamsUrl + league_id  + "/teams"
          $http.post(teamsUrl, team).success(function(response) {
            $rootScope.$broadcast('team:created');
          }).error(function(error){
@@ -31,8 +30,8 @@
          })
        };
 
-       var deleteTeam = function(league_id, id){
-         var teamsUrl = teamsUrl + league_id + "/teams"
+       var deleteTeam = function(id){
+
          $http.delete(teamsUrl + "/" + id).success(function(response) {
            $rootScope.$broadcast('team:deleted');
          }).error(function(error){
